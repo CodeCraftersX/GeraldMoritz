@@ -1,10 +1,38 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+
+import {
+  MainLayout,
+  Root,
+  NotFoundPage,
+  Home,
+} from "./App";
+
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />} errorElement={<NotFoundPage/>}>
+
+      {/* Pages with Header inside here */}
+      <Route element={<MainLayout />}>
+        <Route index element={<Home />} />
+        
+      </Route>
+    </Route>,
+  ),
+);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+      <RouterProvider router={router} />
+      {/* Move ToastContainer here, outside of the routing elements */}
+  </React.StrictMode>,
+);
