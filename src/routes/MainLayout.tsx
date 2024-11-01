@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
       <main className="h-full w-full">
           <Navbar/>
-      <div className="h-full px-2 w-full pb-[2rem]">
+      <div className="w-full">
         <Outlet />
       </div>
       <Footer/>

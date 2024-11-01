@@ -44,10 +44,10 @@ const Navbar: React.FC = () => {
 
   return (
     <header className="bg-white text-black border-b-2 sticky top-0 left-0 z-[100]">
-      <div className="h-[3.5rem] md:h-[4.3rem] mx-auto px-4 lg:px-[8rem] flex justify-between items-center py-4">
+      <div className="h-[3.5rem] md:h-[4.3rem] mx-auto px-4 lg:px-[4rem] flex justify-between items-center py-4">
         {/* Logo */}
         <div className="text-2xl font-bold h-[4.3rem] flex items-center">
-            <b>MoritZ</b>
+            <b className="text-red-500">MoritZ</b>
         </div>
 
         {/* Navigation links for larger screens */}
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
           </a>
           <div className="flex items-center space-x-2 ">
             <button
-              className="text-white bg-black px-4 py-2 rounded"
+              className="text-white bg-red-500 px-4 py-2 rounded"
               aria-label="Login"
             >
               Contact us
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
       >
         <nav className="pl-4 flex flex-col justify-between h-full gap-1">
         <div className="text-2xl font-bold h-[4.3rem] flex items-center">
-            <b>MoritZ</b>
+            <b className="text-red-500">MoritZ</b>
         </div>
           <div className="flex flex-col items-start space-y-4 gap-3 border-r-2 h-full max-h-[40rem] pt-3 pb-9 pr-4">
             <a
@@ -155,7 +155,7 @@ const Navbar: React.FC = () => {
           </div>
           <div className="flex items-center w-full h-full max-h-[5rem] border-r-2 pr-4">
             <button
-              className="text-white bg-black px-4 py-2 rounded w-full max-w-[20rem] font-semibold"
+              className="text-white bg-red-500 px-4 py-2 rounded w-full max-w-[20rem] font-semibold"
               aria-label="Login"
             >
               Contact Us
