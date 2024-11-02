@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { MdOutlineHomeRepairService } from "react-icons/md";
+import { MdDashboardCustomize, MdOutlineHomeRepairService, MdOutlinePhoneCallback, MdRateReview } from "react-icons/md";
 import { PiBuildingOffice } from "react-icons/pi";
-import { IoLogoFirebase } from "react-icons/io5";
+import { RiTeamLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const linkClasses = "flex items-center hover:text-gray-400 space-x-2";
 
@@ -47,48 +48,90 @@ const Navbar: React.FC = () => {
       <div className="h-[3.5rem] md:h-[4.3rem] mx-auto px-4 lg:px-[4rem] flex justify-between items-center py-4">
         {/* Logo */}
         <div className="text-2xl font-bold h-[4.3rem] flex items-center">
-            <b className="text-red-500">MoritZ</b>
+            <b className="text-red-500"><span className="bg-red-500 text-white px-2 rounded-md">G</span>eraldLaw</b>
         </div>
 
         {/* Navigation links for larger screens */}
         <nav className="hidden md:flex space-x-6">
-          <a
-            href="#services"
+          <Link
+            to="/"
             className={
-              activeSection === "services"
-                ? `${linkClasses} text-red-500 bg-gray-200 rounded`
+              activeSection === "/"
+                ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
                 : linkClasses
             }
+            onClick={() => setIsOpen(false)}
           >
-            <span className="text-lg">Our services</span>
-          </a>
-          <a
-            href="#about"
+            <MdDashboardCustomize className="text-2xl text-red-500" /> <span>Home</span>
+          </Link>
+          <Link
+            to="practices"
+            className={
+              activeSection === "practice"
+                ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
+                : linkClasses
+            }
+            onClick={() => setIsOpen(false)}
+          >
+            <MdOutlineHomeRepairService className="text-2xl text-red-500" /> <span>Our Practices</span>
+          </Link>
+          <Link
+            to="about"
             className={
               activeSection === "about"
-                ? `${linkClasses} text-red-500 bg-gray-200 rounded`
+                ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
                 : linkClasses
             }
+            onClick={() => setIsOpen(false)}
           >
-            <span className="text-lg">About us</span>
-          </a>
-          <a
-            href="#products"
+            <PiBuildingOffice className="text-2xl text-red-500" />
+            <span>About us</span>
+          </Link>
+
+          <Link
+            to="reviews"
             className={
-              activeSection === "products"
-                ? `${linkClasses} text-red-500 bg-gray-200 rounded`
+              activeSection === "reviews"
+                ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
                 : linkClasses
             }
+            onClick={() => setIsOpen(false)}
           >
-            <span className="text-lg">Products</span>
-          </a>
+            <MdRateReview className="text-2xl text-red-500" />
+            <span>Reviews</span>
+          </Link>
+          <Link
+            to="team"
+            className={
+              activeSection === "team"
+                ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
+                : linkClasses
+            }
+            onClick={() => setIsOpen(false)}
+          >
+            <RiTeamLine className="text-2xl text-red-500" />
+            <span>Our Team</span>
+          </Link>
+          <Link
+            to="contact"
+            className={
+              activeSection === "contact"
+                ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
+                : linkClasses
+            }
+            onClick={() => setIsOpen(false)}
+          >
+            <MdOutlinePhoneCallback className="text-2xl text-red-500" />
+            <span >Contact Us</span>
+          </Link>
           <div className="flex items-center space-x-2 ">
-            <button
+            <a
+              href="tel:+12702902019"
               className="text-white bg-red-500 px-4 py-2 rounded"
               aria-label="Login"
             >
-              Contact us
-            </button>
+              +1 270-290-2019
+            </a>
           </div>
         </nav>
 
@@ -114,22 +157,33 @@ const Navbar: React.FC = () => {
       >
         <nav className="pl-4 flex flex-col justify-between h-full gap-1">
         <div className="text-2xl font-bold h-[4.3rem] flex items-center">
-            <b className="text-red-500">MoritZ</b>
+            <b className="text-red-500"><span className="bg-red-500 text-white px-2 rounded-md">G</span>eraldLaw</b>
         </div>
           <div className="flex flex-col items-start space-y-4 gap-3 border-r-2 h-full max-h-[40rem] pt-3 pb-9 pr-4">
-            <a
-              href="#services"
+            <Link
+              to="/"
               className={
-                activeSection === "services"
+                activeSection === "/"
                   ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
                   : linkClasses
               }
               onClick={() => setIsOpen(false)}
             >
-              <MdOutlineHomeRepairService className="text-2xl" /> <span>Our services</span>
-            </a>
-            <a
-              href="#about"
+              <MdDashboardCustomize className="text-3xl" /> <span className="text-lg">Home</span>
+            </Link>
+            <Link
+              to="practices"
+              className={
+                activeSection === "practice"
+                  ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
+                  : linkClasses
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              <MdOutlineHomeRepairService className="text-3xl" /> <span className="text-lg">Our Practices</span>
+            </Link>
+            <Link
+              to="about"
               className={
                 activeSection === "about"
                   ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
@@ -137,29 +191,54 @@ const Navbar: React.FC = () => {
               }
               onClick={() => setIsOpen(false)}
             >
-              <PiBuildingOffice className="text-2xl" />
-              <span>About us</span>
-            </a>
-            <a
-              href="#products"
+              <PiBuildingOffice className="text-3xl" />
+              <span className="text-lg">About us</span>
+            </Link>
+            <Link
+              to="reviews"
               className={
-                activeSection === "products"
+                activeSection === "reviews"
                   ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
                   : linkClasses
               }
               onClick={() => setIsOpen(false)}
             >
-              <IoLogoFirebase className="text-2xl" />
-              <span>Products</span>
-            </a>
+              <MdRateReview className="text-3xl" />
+              <span className="text-lg">Reviews</span>
+            </Link>
+            <Link
+              to="team"
+              className={
+                activeSection === "team"
+                  ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
+                  : linkClasses
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              <RiTeamLine className="text-3xl" />
+              <span className="text-lg">Our Team</span>
+            </Link>
+            <Link
+              to="contact"
+              className={
+                activeSection === "contact"
+                  ? `${linkClasses} text-red-500 bg-gray-200 w-full px-2 py-2 shadow-custom rounded`
+                  : linkClasses
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              <MdOutlinePhoneCallback className="text-3xl" />
+              <span className="text-lg">Contact Us</span>
+            </Link>
           </div>
-          <div className="flex items-center w-full h-full max-h-[5rem] border-r-2 pr-4">
-            <button
-              className="text-white bg-red-500 px-4 py-2 rounded w-full max-w-[20rem] font-semibold"
+          <div className="flex items-center justify-center w-full h-full max-h-[5rem] border-r-2 pr-4">
+            <a
+              href="tel:+12702902019"
+              className="text-white bg-red-500 px-4 py-2 rounded w-full max-w-[20rem] font-semibold text-center"
               aria-label="Login"
             >
-              Contact Us
-            </button>
+              +1 270-290-2019
+            </a>
           </div>
         </nav>
       </div>

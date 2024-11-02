@@ -30,7 +30,7 @@ export default function Ranking() {
     return (
         <ul className="grid gap-2 lg:gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 items-center">
             {RankingsData.map((item, index) => (
-                <li key={index} className="w-full border-t border-gray-300 p-2 flex flex-col h-[7rem] justify-between shadow-lg bg-[#262727]">
+                <li key={index} className="w-full border-t-2 border-red-500 p-2 flex flex-col h-[7rem] justify-between shadow-lg bg-[#262727]">
                     <h1 className="font-bold text-xl text-white">{item.Num}</h1>
                     <p className="text-white text-md font-serif text-sm md::text-md">{item.Desc}</p>
                 </li> 

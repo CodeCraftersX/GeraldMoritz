@@ -24,6 +24,13 @@ body {
   height: 100vh;
 }
 
+/* Custom styling for pagination */
+.custom-pagination .MuiPaginationItem-root {
+  color: #f00; /* Your custom color */
+}
+.custom-pagination .Mui-selected {
+  background-color: #f00; /* Custom color for selected item */
+}
 
 /* .bg-black {
     --tw-bg-opacity: 1;

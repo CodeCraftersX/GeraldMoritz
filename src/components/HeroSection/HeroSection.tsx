@@ -10,11 +10,11 @@ export default function HeroSection() {
       />
       <div className="absolute w-full h-full bg-[#0000005f]">
         <div className="w-full h-full flex flex-col items-center justify-center gap-5 pt-9 md:pt-[3rem] px-4">
-          <h1 className="text-4xl md:text-4xl lg:text-6xl text-white font-bold font-sans max-w-[38rem] text-center">Gerald & Associates Law Firm</h1>
+          <h1 className="text-4xl md:text-4xl lg:text-6xl text-white font-bold font-sans max-w-[38rem] text-center">Moritz & Associates Law Firm</h1>
 
           <p className="text-lg md:text-2xl text-white">Your Truted Partner in Legal Matters</p>
           
-          <button className="mt-[3rem] text-black bg-white hover:bg-white hover:text-black duration-[0.2s] w-full md:w-[16rem] py-2 rounded-lg font-serif text-lg">
+          <button className="mt-[2rem] text-black bg-white hover:bg-gray-100 hover:text-black transform duration-[0.5s] w-full md:w-[16rem] py-2 rounded-lg font-serif text-lg">
             Free Case Evaluation
           </button>
 
