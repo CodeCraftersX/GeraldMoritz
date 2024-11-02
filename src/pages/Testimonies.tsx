@@ -15,8 +15,8 @@ export function Testimonies() {
   // Get the reviews for the current page
   const paginatedReviews = reviews.slice((page - 1) * pageSize, page * pageSize);
 
-  // Handle page change
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  // Handle page change (removed 'event' parameter as it's not needed)
+  const handlePageChange = (_: unknown, value: number) => {
     setPage(value);
   };
 
