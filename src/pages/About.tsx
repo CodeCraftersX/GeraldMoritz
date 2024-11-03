@@ -35,7 +35,7 @@ export function Abouts() {
   }
   return (
     <>
-      <section className="flex flex-col gap-5 items-center justify-start py-20 box-border bg-black/5">
+      <section className="flex flex-col gap-5 items-center justify-start py-20 box-border bg-black/5 mb-10">
         <div
           className={
             "w-full h-fit p-2 text-center relative flex items-center justify-center pb-[-10px] gap-2 flex-col *:font-medium " +
@@ -70,7 +70,7 @@ export function Abouts() {
           </Button>
         </Link>
       </section>
-      <section className="flex flex-col gap-5 items-center justify-center box-border">
+      <section className="flex flex-col gap-5 items-center justify-center box-border pb-10">
         <div
           className={
             "w-full h-fit p-2 text-center relative flex items-center justify-center pb-[-10px] gap-2 flex-col *:font-medium " +
@@ -250,7 +250,7 @@ export function Abouts() {
           </li>
         </ul>
       </section>
-      <section className="flex flex-col gap-5 items-center justify-center box-border">
+      <section className="flex flex-col gap-5 items-center justify-center box-border pb-10">
         <div
           className={
             "w-full h-fit p-2 text-center relative flex items-center justify-center pb-[-10px] gap-2 flex-col *:font-medium " +
