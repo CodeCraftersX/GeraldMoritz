@@ -5,6 +5,7 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import Ranking from "../components/Ranking/Ranking";
 import { reviews } from "../components/testimonies/review";
 import { AiFillStar } from "react-icons/ai";
+import OurTeam from "./OurTeam";
 
 export default function Home() {
   // Get the latest 3 reviews
@@ -38,6 +39,7 @@ export default function Home() {
           ))}
         </ul>
       </div>
+      <OurTeam/>
     </section>
   )
 }
