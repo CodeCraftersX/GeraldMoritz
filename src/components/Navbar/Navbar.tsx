@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Navigation links for larger screens */}
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden lg:flex space-x-6">
           <Link
             to="/"
             className={
@@ -136,7 +136,7 @@ const Navbar: React.FC = () => {
         </nav>
 
         {/* Hamburger menu for smaller screens */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={toggleMenu}
             className="focus:outline-none"
@@ -153,7 +153,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-y-0 left-0 z-90 bg-white transform overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out md:hidden w-3/4 max-w-sm`}
+        className={`fixed inset-y-0 left-0 z-90 bg-white transform overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out lg:hidden w-3/4 max-w-sm`}
       >
         <nav className="pl-4 flex flex-col justify-between h-full gap-1">
         <div className="text-2xl font-bold h-[4.3rem] flex items-center">

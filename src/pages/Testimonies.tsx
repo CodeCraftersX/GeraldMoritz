@@ -23,7 +23,7 @@ export function Testimonies() {
   return (
     <section className="pb-9 flex flex-col gap-4 items-center justify-center bg-gray-50">
       <HeroSection />
-      <ul className="grid gap-2 lg:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center px-2 md:px-4">
+      <ul className="grid gap-2 lg:gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center px-2 md:px-4">
         {paginatedReviews.map((review, index) => (
           <li key={index} className="w-full p-3 flex flex-col h-[14rem] justify-between shadow-xl bg-black rounded-md">
             <div className="flex items-center gap-3">

@@ -5,5 +5,15 @@ import NotFoundPage from "./routes/NotFoundPage";
 import { Testimonies } from "./pages/Testimonies";
 import { Contact } from "./pages/Contact";
 import { Abouts } from "./pages/About";
+import OurTeam from "./pages/OurTeam";
 
-export { Home, MainLayout, Root, NotFoundPage, Testimonies, Contact, Abouts };
+export {
+  Home,
+  MainLayout,
+  Root,
+  NotFoundPage,
+  Testimonies,
+  OurTeam,
+  Contact,
+  Abouts,
+};

@@ -12,7 +12,7 @@ export default function Ranking() {
         },
         {
             id: 2,
-            Num: "12",
+            Num: "20",
             Desc: "Years of experience"
         },
         {

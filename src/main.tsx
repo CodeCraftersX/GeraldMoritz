@@ -15,6 +15,7 @@ import {
   NotFoundPage,
   Home,
   Testimonies,
+  OurTeam,
   Contact,
   Abouts,
 } from "./App";
@@ -25,6 +26,8 @@ const router = createBrowserRouter(
       {/* Pages with Header inside here */}
       <Route element={<MainLayout />}>
         <Route index element={<Home />} />
+        <Route path="reviews" element={<Testimonies />} />
+        <Route path="team" element={<OurTeam />} />
         <Route path="reviews" element={<Testimonies />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<Abouts />} />
