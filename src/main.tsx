@@ -16,6 +16,7 @@ import {
   Home,
   Testimonies,
   Contact,
+  Abouts,
 } from "./App";
 
 const router = createBrowserRouter(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="reviews" element={<Testimonies />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="about" element={<Abouts />} />
       </Route>
     </Route>
   )

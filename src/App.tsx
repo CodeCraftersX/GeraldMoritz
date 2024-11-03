@@ -4,5 +4,6 @@ import Root from "./routes/Root";
 import NotFoundPage from "./routes/NotFoundPage";
 import { Testimonies } from "./pages/Testimonies";
 import { Contact } from "./pages/Contact";
+import { Abouts } from "./pages/About";
 
-export { Home, MainLayout, Root, NotFoundPage, Testimonies, Contact };
+export { Home, MainLayout, Root, NotFoundPage, Testimonies, Contact, Abouts };
