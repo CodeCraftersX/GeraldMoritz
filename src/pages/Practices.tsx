@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { lawFirmAboutProfile } from "../components/about/lawFirmAboutProfile";
 import Accordion from "../components/Accordion/Accordion";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@mui/material";
 
 function Practices() {
@@ -9,19 +9,64 @@ function Practices() {
   const location = useLocation();
   const { id } = location.state || {};
   const [idExpanded, setIdExpanded] = useState<null | string>(null);
+  const methodsContainer = useRef<HTMLElement | null>(null);
+  const issuesContainer = useRef<HTMLElement | null>(null);
 
   const scrollToAccordion = useCallback((id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
       block: "center",
     });
+    document.getElementById(id)?.classList.add("!bg-black/50");
+
+    setTimeout(() => {
+      document.getElementById(id)?.classList.remove("!bg-black/50");
+    }, 1000);
     setIdExpanded(id);
   }, []);
+  const scrollToMethods = useCallback(() => {
+    methodsContainer.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+    if (!methodsContainer.current?.classList.contains("!bg-black/10")) {
+      methodsContainer.current?.classList.add("!bg-black/10");
+    }
+
+    setTimeout(() => {
+      if (methodsContainer.current?.classList.contains("!bg-black/10")) {
+        methodsContainer.current?.classList.remove("!bg-black/10");
+      }
+    }, 1000);
+  }, []);
+  const scrollToIssues = useCallback(() => {
+    issuesContainer.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+    if (!issuesContainer.current?.classList.contains("!bg-black/10")) {
+      issuesContainer.current?.classList.add("!bg-black/10");
+    }
+
+    setTimeout(() => {
+      if (!issuesContainer.current?.classList.contains("!bg-black/10")) {
+        issuesContainer.current?.classList.remove("!bg-black/10");
+      }
+    }, 1000);
+  }, []);
+
   useEffect(() => {
     if (id) {
       scrollToAccordion(id);
+      if (id === "methodsContainer") {
+        scrollToMethods();
+      } else if (id === "issuesContainer") {
+        scrollToIssues();
+      } else if (id === "/") {
+        scrollToMethods();
+      }
     }
-  }, [id, scrollToAccordion]);
+  }, [id, scrollToAccordion, scrollToIssues, scrollToMethods]);
 
   return (
     <>
@@ -35,7 +80,10 @@ function Practices() {
           Our Expertise
         </h2>
       </div>
-      <section className="flex flex-col gap-5 items-center justify-start p-4 box-border mb-10">
+      <section
+        ref={methodsContainer}
+        className="flex flex-col gap-5 items-center justify-start p-4 box-border mb-10"
+      >
         <div
           className={
             "w-full h-fit p-2 text-center relative flex items-center justify-center pb-[-10px] gap-2 flex-col *:font-medium " +
@@ -63,7 +111,10 @@ function Practices() {
           </ul>
         )}
       </section>
-      <section className="flex flex-col gap-5 items-center justify-start p-4 box-border mb-10">
+      <section
+        ref={issuesContainer}
+        className="flex flex-col gap-5 items-center justify-start p-4 box-border mb-10"
+      >
         <div
           className={
             "w-full h-fit p-2 text-center relative flex items-center justify-center pb-[-10px] gap-2 flex-col *:font-medium " +

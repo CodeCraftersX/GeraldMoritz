@@ -1,38 +1,12 @@
 import { Button } from "@mui/material";
 import { BiArrowToRight } from "react-icons/bi";
+import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { lawFirmAboutProfile } from "../components/about/lawFirmAboutProfile";
-import { useState } from "react";
-import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 
 export function Abouts() {
   const { issuesWeResolve, methodsWeUse, strengths } = lawFirmAboutProfile;
-  const [limits, setLimits] = useState({
-    methodsWeUse: 3,
-    issuesWeResolve: 3,
-  });
-  function handleSetLimit(
-    limit: "methodsWeUse" | "issuesWeResolve",
-    max: number
-  ) {
-    switch (limit) {
-      case "issuesWeResolve":
-        setLimits((l) => ({
-          ...l,
-          issuesWeResolve: l.issuesWeResolve !== max ? max : 3,
-        }));
-        break;
-      case "methodsWeUse":
-        setLimits((l) => ({
-          ...l,
-          methodsWeUse: l.methodsWeUse !== max ? max : 3,
-        }));
-        break;
 
-      default:
-        break;
-    }
-  }
   return (
     <>
       <section className="flex flex-col gap-5 items-center justify-start py-20 box-border bg-black/5 mb-10">
@@ -95,7 +69,7 @@ export function Abouts() {
               Methods we use
             </h4>
             <ul className="w-full h-fit py-2 box-border flex flex-col items-start justify-start gap-2">
-              {methodsWeUse.slice(0, limits.methodsWeUse).map((method, ind) => (
+              {methodsWeUse.slice(0, 3).map((method, ind) => (
                 <li
                   key={ind}
                   className="w-full h-fit bg-black/5 flex flex-col items-start justify-start gap-2 box-border p-2 shadow-sm border-[1px] border-black/50 rounded-md"
@@ -127,34 +101,23 @@ export function Abouts() {
               ))}
               <li
                 className={
-                  "w-full min-[498px]:hidden relative z-10 flex items-center justify-center bg-gradient-to-t from-white to-transparent " +
-                  " " +
-                  `${
-                    limits.methodsWeUse === methodsWeUse.length
-                      ? "mt-0 pt-5 pb-5"
-                      : "-mt-28 pt-20"
-                  }`
+                  "w-full min-[498px]:hidden relative z-10 flex items-center justify-center bg-gradient-to-t from-white to-transparent"
                 }
               >
-                <Button
-                  variant="text"
-                  className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base !px-4  !text-black"
-                  startIcon={
-                    limits.methodsWeUse === methodsWeUse.length ? (
-                      <BsArrowUp className="animate-bounce" />
-                    ) : (
-                      <BsArrowDown className="animate-bounce" />
-                    )
-                  }
-                  disableElevation
-                  onClick={() =>
-                    handleSetLimit("methodsWeUse", methodsWeUse.length)
-                  }
+                <Link
+                  to="/practices"
+                  state={{ id: "methodsContainer" }}
+                  className="w-fit h-fit"
                 >
-                  {limits.methodsWeUse === methodsWeUse.length
-                    ? "See less"
-                    : "See more"}
-                </Button>
+                  <Button
+                    variant="text"
+                    className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base !px-4  !text-black"
+                    startIcon={<BsArrowRight />}
+                    disableElevation
+                  >
+                    See all methods
+                  </Button>
+                </Link>
               </li>
             </ul>
           </li>
@@ -168,104 +131,73 @@ export function Abouts() {
               Issues We Resolve
             </h4>
             <ul className="w-full h-fit py-2 box-border flex flex-col items-start justify-start gap-2">
-              {issuesWeResolve
-                .slice(0, limits.issuesWeResolve)
-                .map((issue, ind) => (
-                  <li
-                    key={ind}
-                    className="w-full h-fit bg-black/5 flex flex-col items-start justify-start gap-2 box-border p-2 shadow-sm border-[1px] border-black/50 rounded-md"
+              {issuesWeResolve.slice(0, 3).map((issue, ind) => (
+                <li
+                  key={ind}
+                  className="w-full h-fit bg-black/5 flex flex-col items-start justify-start gap-2 box-border p-2 shadow-sm border-[1px] border-black/50 rounded-md"
+                >
+                  <h4
+                    className={
+                      "text-base min-[498px]:text-lg sm:text-xl font-mono after:w-10 relative flex items-start justify-start gap-2 flex-col " +
+                      "after:content-[''] after:relative after:w-10 after:h-0.5 after:bg-red-500/50 after:rounded-full"
+                    }
                   >
-                    <h4
-                      className={
-                        "text-base min-[498px]:text-lg sm:text-xl font-mono after:w-10 relative flex items-start justify-start gap-2 flex-col " +
-                        "after:content-[''] after:relative after:w-10 after:h-0.5 after:bg-red-500/50 after:rounded-full"
-                      }
+                    {issue.issue}
+                  </h4>
+                  <p>{issue.description.split(".")[0]}</p>
+                  <Link
+                    to="/practices"
+                    state={{ id: issue.issue.replace(/ /g, "-") }}
+                    className="w-fit h-fit"
+                  >
+                    <Button
+                      variant="contained"
+                      className="!p-2 !text-xs min-[498px]:!text-sm font-mono sm:!text-base !px-4 !bg-black/90 hover:!bg-black/70 !text-white"
+                      startIcon={<BiArrowToRight />}
+                      disableElevation
                     >
-                      {issue.issue}
-                    </h4>
-                    <p>{issue.description.split(".")[0]}</p>
-                    <Link
-                      to="/practices"
-                      state={{ id: issue.issue.replace(/ /g, "-") }}
-                      className="w-fit h-fit"
-                    >
-                      <Button
-                        variant="contained"
-                        className="!p-2 !text-xs min-[498px]:!text-sm font-mono sm:!text-base !px-4 !bg-black/90 hover:!bg-black/70 !text-white"
-                        startIcon={<BiArrowToRight />}
-                        disableElevation
-                      >
-                        Read more
-                      </Button>
-                    </Link>
-                  </li>
-                ))}
+                      Read more
+                    </Button>
+                  </Link>
+                </li>
+              ))}
               <li
                 className={
-                  "w-full min-[498px]:hidden relative z-10 flex items-center justify-center bg-gradient-to-t from-white to-transparent " +
-                  " " +
-                  `${
-                    limits.issuesWeResolve === issuesWeResolve.length
-                      ? "mt-0 pt-5 pb-5"
-                      : "-mt-28 pt-20"
-                  }`
+                  "w-full min-[498px]:hidden relative z-10 flex items-center justify-center bg-gradient-to-t from-white to-transparent"
                 }
               >
-                <Button
-                  variant="text"
-                  className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base !px-4 font-mono !text-black"
-                  startIcon={
-                    limits.issuesWeResolve === issuesWeResolve.length ? (
-                      <BsArrowUp className="animate-bounce" />
-                    ) : (
-                      <BsArrowDown className="animate-bounce" />
-                    )
-                  }
-                  disableElevation
-                  onClick={() =>
-                    handleSetLimit("issuesWeResolve", issuesWeResolve.length)
-                  }
+                <Link
+                  to="/practices"
+                  state={{ id: "issuesContainer" }}
+                  className="w-fit h-fit"
                 >
-                  {limits.issuesWeResolve === issuesWeResolve.length
-                    ? "See less"
-                    : "See more"}
-                </Button>
+                  <Button
+                    variant="text"
+                    className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base !px-4 font-mono !text-black"
+                    startIcon={<BsArrowRight />}
+                    disableElevation
+                  >
+                    See all Issues
+                  </Button>
+                </Link>
               </li>
             </ul>
           </li>
           <li
             className={
-              "w-full hidden min-[498px]:flex relative z-10 items-center justify-center bg-gradient-to-t from-white to-transparent " +
-              " " +
-              `${
-                limits.issuesWeResolve === issuesWeResolve.length ||
-                limits.methodsWeUse === methodsWeUse.length
-                  ? "mt-0 pt-5 pb-5"
-                  : "-mt-28 pt-20"
-              }`
+              "w-full hidden min-[498px]:flex relative z-10 items-center justify-center bg-gradient-to-t from-white to-transparent"
             }
           >
-            <Button
-              variant="text"
-              className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base font-mono !px-4  !text-black"
-              startIcon={
-                limits.issuesWeResolve === issuesWeResolve.length ? (
-                  <BsArrowUp className="animate-bounce" />
-                ) : (
-                  <BsArrowDown className="animate-bounce" />
-                )
-              }
-              disableElevation
-              onClick={() => {
-                handleSetLimit("issuesWeResolve", issuesWeResolve.length);
-                handleSetLimit("methodsWeUse", methodsWeUse.length);
-              }}
-            >
-              {limits.methodsWeUse === methodsWeUse.length ||
-              limits.issuesWeResolve === issuesWeResolve.length
-                ? "See less"
-                : "See more"}
-            </Button>
+            <Link to="/practices" state={{ id: "/" }} className="w-fit h-fit">
+              <Button
+                variant="text"
+                className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base font-mono !px-4  !text-black"
+                startIcon={<BsArrowRight />}
+                disableElevation
+              >
+                See all expertise
+              </Button>
+            </Link>
           </li>
         </ul>
       </section>
