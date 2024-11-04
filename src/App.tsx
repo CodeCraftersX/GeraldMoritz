@@ -6,6 +6,7 @@ import { Testimonies } from "./pages/Testimonies";
 import { Contact } from "./pages/Contact";
 import { Abouts } from "./pages/About";
 import OurTeam from "./pages/OurTeam";
+import Practices from "./pages/Practices";
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   OurTeam,
   Contact,
   Abouts,
+  Practices,
 };
