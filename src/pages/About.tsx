@@ -108,8 +108,12 @@ export function Abouts() {
                   >
                     {method.method}
                   </h4>
-                  <p>{method.description}</p>
-                  <Link to="/practices" className="w-fit h-fit">
+                  <p>{method.description.split(".")[0]}</p>
+                  <Link
+                    to="/practices"
+                    state={{ id: method.method.replace(/ /g, "-") }}
+                    className="w-fit h-fit"
+                  >
                     <Button
                       variant="contained"
                       className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base font-mono !px-4 !bg-black/90 hover:!bg-black/70 !text-white"
@@ -179,8 +183,12 @@ export function Abouts() {
                     >
                       {issue.issue}
                     </h4>
-                    <p>{issue.description}</p>
-                    <Link to="/practices" className="w-fit h-fit">
+                    <p>{issue.description.split(".")[0]}</p>
+                    <Link
+                      to="/practices"
+                      state={{ id: issue.issue.replace(/ /g, "-") }}
+                      className="w-fit h-fit"
+                    >
                       <Button
                         variant="contained"
                         className="!p-2 !text-xs min-[498px]:!text-sm font-mono sm:!text-base !px-4 !bg-black/90 hover:!bg-black/70 !text-white"
@@ -225,7 +233,18 @@ export function Abouts() {
               </li>
             </ul>
           </li>
-          <li className="w-full hidden min-[498px]:flex relative z-10  items-center justify-center bg-gradient-to-t from-white to-transparent -mt-28 pt-20">
+          <li
+            className={
+              "w-full hidden min-[498px]:flex relative z-10 items-center justify-center bg-gradient-to-t from-white to-transparent " +
+              " " +
+              `${
+                limits.issuesWeResolve === issuesWeResolve.length ||
+                limits.methodsWeUse === methodsWeUse.length
+                  ? "mt-0 pt-5 pb-5"
+                  : "-mt-28 pt-20"
+              }`
+            }
+          >
             <Button
               variant="text"
               className="!p-2 !text-xs min-[498px]:!text-sm sm:!text-base font-mono !px-4  !text-black"

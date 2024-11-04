@@ -18,6 +18,7 @@ import {
   OurTeam,
   Contact,
   Abouts,
+  Practices,
 } from "./App";
 
 const router = createBrowserRouter(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
         <Route path="reviews" element={<Testimonies />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<Abouts />} />
+        <Route path="practices" element={<Practices />} />
       </Route>
     </Route>
   )

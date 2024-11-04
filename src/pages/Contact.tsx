@@ -64,11 +64,17 @@ ${textContent}
     setWorkDays(days);
   }, []);
 
+  const scrollToResponseForm = useCallback(() => {
+    responseForm.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, []);
   useEffect(() => {
     if (section == "form") {
       scrollToResponseForm();
     }
-  }, [section]);
+  }, [scrollToResponseForm, section]);
 
   useEffect(() => {
     const tomorrow = {
@@ -95,12 +101,7 @@ ${textContent}
     }
   }, [workDays]);
 
-  const scrollToResponseForm = useCallback(() => {
-    responseForm.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  }, []);
+  
 
   return (
     <>
