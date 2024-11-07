@@ -132,7 +132,9 @@ ${textContent}
             </h4>
 
             <address className="text-sm min-[498px]:text-base sm:text-lg not-italic">
-              375 University Ave, Suite 900 Toronto, ON, M5G 2J5
+            James J. DeCristofaro, Esq.
+462 Seventh Ave Fl 6
+New York, NY 10018
             </address>
 
             <a href="tel:+12702902019" className="w-fit h-fit">
