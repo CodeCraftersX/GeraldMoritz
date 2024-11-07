@@ -7,20 +7,6 @@ export const daysOfWeek = [
   "friday",
   "saturday",
 ];
-export const months = [
-  "january",
-  "february",
-  "march",
-  "april",
-  "may",
-  "june",
-  "july",
-  "august",
-  "september",
-  "october",
-  "november",
-  "december",
-];
 
 export function getDateFromNow(daysFromNow = 1) {
   const dateFromNow = new Date().getDate() + daysFromNow;
@@ -32,14 +18,14 @@ export function getDateFromNow(daysFromNow = 1) {
 
 export function moment(time: number) {
   let moment: "morning" | "afternoon" | "evening" = "morning";
-  if (time < 12) {
+  if (time === 24 || time < 12) {
     moment = "morning";
   }
 
-  if (time < 16) {
+  if (time < 16 && time >= 12) {
     moment = "afternoon";
   }
-  if (time !== 0 && time >= 16) {
+  if (time !== 0 && time >= 16 && time !== 24) {
     moment = "evening";
   }
 
