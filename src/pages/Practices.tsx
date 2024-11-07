@@ -49,7 +49,7 @@ function Practices() {
     }
 
     setTimeout(() => {
-      if (!issuesContainer.current?.classList.contains("!bg-black/10")) {
+      if (issuesContainer.current?.classList.contains("!bg-black/10")) {
         issuesContainer.current?.classList.remove("!bg-black/10");
       }
     }, 1000);
