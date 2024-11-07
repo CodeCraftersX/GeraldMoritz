@@ -1,6 +1,13 @@
 // import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function HeroSection() {
+  const navigate = useNavigate()
+
+  const handleNavigate = () =>{
+    navigate("contact")
+  }
+
   return (
     <section className="relative w-full h-[20rem] md:h-[29rem] flex items-center justify-center">
       <img
@@ -14,7 +21,7 @@ export default function HeroSection() {
 
           <p className="text-lg md:text-2xl text-white">Your Truted Partner in Legal Matters</p>
           
-          <button className="mt-[2rem] text-black bg-white hover:bg-gray-100 hover:text-black transform duration-[0.5s] w-full md:w-[16rem] py-2 rounded-lg font-serif text-lg">
+          <button onClick={handleNavigate} className="mt-[2rem] text-black bg-white hover:bg-gray-100 hover:text-black transform duration-[0.5s] w-full md:w-[16rem] py-2 rounded-lg font-serif text-lg">
             Free Case Evaluation
           </button>
 
