@@ -29,7 +29,7 @@ export default function Footer() {
                       <b className="text-2xl">Contacts</b>
                       <p className="text-gray-300 w-full max-w-[15rem] text-md">Do have a question you need help? Get in touch:</p>
                       <p className="text-gray-300 text-md">Mon - Fri (8am - 4pm)</p>
-                      <a href="mailto:Moritz@Geraldlaw.com" className="flex items-center gap-2 text-gray-300 text-md"><CiMail className="font-bold text-white"/> <span>Email:</span> Moritz@Geraldlaw.com</a>
+                      <a href="mailto:Geraldconsultant@proton.me" className="flex items-center gap-2 text-gray-300 text-md"><CiMail className="font-bold text-white"/> <span>Email:</span> Geraldconsultant@proton.me</a>
                       <a href="tel:+12702902019" className="flex items-center gap-2 text-gray-300 text-md"><HiOutlinePhone /><span>Phone:</span> +1 270-290-2019</a>
                   </div>
               </div>

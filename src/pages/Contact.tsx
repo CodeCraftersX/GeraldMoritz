@@ -51,7 +51,7 @@ Response email: ${email}
 Message:
 ${textContent}
     `;
-    const mailtoLink = `mailto:Moritz@Geraldlaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:Geraldconsultant@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailtoLink;
   };
